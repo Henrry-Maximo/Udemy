@@ -44,7 +44,8 @@ func(1, 2, 3, 4, 5, 6, 7);
 
 //                                     rest operator
 // function account(operator, accumulator, ...numbers) {
-const account = function(operator, accumulator, ...numbers) {
+// const account = function(operator, accumulator, ...numbers) {
+const account = (...args) => {
   for (let number of numbers) {
     if (operator === '+') accumulator += number;
     if (operator === '-') accumulator -= number;
@@ -53,6 +54,10 @@ const account = function(operator, accumulator, ...numbers) {
     
     // console.log(number);
   };
+
+  console.log(args); // [ '+', 1, 20, 30, 40, 50 ]
+
+  console.log(arguments); // [Arguments] { '0': '+', '1': 1, '2': 20, '3': 30, '4': 40, '5': 50 }
 
   console.log(operator, accumulator, numbers);
   console.log(accumulator);

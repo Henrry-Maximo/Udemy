@@ -1,5 +1,4 @@
 // Filter -> Ever return an array, with the same amount of elements or less
-
 // Return the numbers larger that 10
 
 const listNumbers = [0, 11, 13, 15, 16, 2, 3, 6, 1, 75, 5, 8];

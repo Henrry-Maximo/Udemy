@@ -10,3 +10,5 @@ const funcao = returnFunction('Henrry');
 const funcao2 = returnFunction('João');
 console.log(funcao); // dir
 console.dir(funcao2); // dir
+
+console.log(funcao(), funcao2);

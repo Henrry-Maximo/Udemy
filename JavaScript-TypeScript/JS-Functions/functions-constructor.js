@@ -2,8 +2,8 @@
 function Person(name, surname) {
   // Attributes or methods privates
   const ID = 123456;
-  const methodInt = function() {
-
+  const methodInternal = function() {
+    // example: validation CPF
   };
 
   // Attributes or methods publics

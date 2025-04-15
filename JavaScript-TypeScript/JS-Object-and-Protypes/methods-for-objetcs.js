@@ -89,3 +89,13 @@ product.name = 'Other something';
 delete product.name;
 delete product.price;
 console.log(product);
+
+// use values for display all the values
+// use entries for display the values in array separate - [ [ 'nome', 'Produto' ], [ 'preco', 1.8 ] ]
+console.log(Object.values(product));
+
+//          value
+for (let [key, value] of Object.entries(product)) {
+    console.log(key, value);
+    // console.log(value[0], value[1]);
+}

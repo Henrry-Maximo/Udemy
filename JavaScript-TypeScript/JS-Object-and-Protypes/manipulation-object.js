@@ -52,7 +52,7 @@ const p2 = {
 // Object.prototype
 const p3 = Object.create(Product.prototype, {
     increase: {
-        size: {
+        price: {
             writable: true,
             configurable: true,
             enumerable: true,

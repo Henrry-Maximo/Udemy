@@ -28,4 +28,4 @@ console.log(cpfArray.map(el => el));
 console.log(cpfClear.reduce((ac, value ) => ac * Number(value), 0));
 //console.log(cpfClear); // 70548445052
 
-70548445052
+// 70548445052

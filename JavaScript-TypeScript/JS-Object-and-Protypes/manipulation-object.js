@@ -23,10 +23,11 @@ console.log(objC.keyA);
 Object.getPrototypeOf(objA);
 
 // --------------------------------------------------------------------
+
 function Product(name, price) {
     this.name = name;
     this.price = price;
-};
+}; // creating class for using with prototype
 
 Product.prototype.discount = function(percent) {
     this.price = this.price - (this.price * (percent / 100));
@@ -37,35 +38,41 @@ Product.prototype.increase = function(percent) {
 };
 
 const p1 = new Product('Short', 50);
-p1.discount(100);
-p1.increase(100);
+p1.discount(100); // result: 0
+p1.increase(100); // result: 100
 console.log(p1);
-Object.setPrototypeOf(p2, Product.prototype);
 
-p2.increase(10);
-
+// literal
 const p2 = {
-    name: 'Teste',
+    name: 'Mug',
     price: 20
 };
 
-// Object.prototype
+Object.setPrototypeOf(p2, Product.prototype); // object receive prototype
+
+p2.increase(10); // using methods of p2 (aumento)
+console.log(p2);
+
+p2.discount(10); // using methods of p2 (aumento)
+console.log(p2);
+
+// Object.prototype: appeding configuration in methods of class (prototype)
 const p3 = Object.create(Product.prototype, {
-    increase: {
-        price: {
-            writable: true,
-            configurable: true,
-            enumerable: true,
-            value: 42
-        },
-        size: {
-            writable: true,
-            configurable: true,
-            enumerable: true,
-            value: 23
-        },
-    }
+    price: {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: 42
+    },
+    size: {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: 23
+    },
+    // increase: {  
+    // }
 });
+
 p3.price = 113;
 console.log(p3);
-p2.increase(100);

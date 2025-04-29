@@ -38,3 +38,31 @@ if (isTrue) {
 };
 
 console.log(name, name2) // Name, Name 3
+
+// -------------------------------------------
+// values of function is protected
+function sayHello () {
+  var name = 'Show';
+  console.log(name); // ✅
+}
+
+// ❌ console.log(sayHello);
+sayHello();
+
+// values defined outside the function
+// var surname = 'GLPi'
+
+function sayHello() {
+  var surname = 'GLPi'
+  console.log(surname);
+
+  if (isTrue) {
+    let nome = 'Luiz';
+    console.log(surname)
+  }
+
+  console.log(nome);
+}
+
+// ❌ console.log(sayHello);
+sayHello();

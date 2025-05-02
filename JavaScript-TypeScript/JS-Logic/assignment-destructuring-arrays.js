@@ -29,8 +29,8 @@ let c = 'C';
 // console.log(firstNumber, secondNumber);
 
 // Getting values of array by separete
-const numbers = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000];
-const [ one, , three, , five, , sete ] = numbers;
+// const numbers = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000];
+// const [ one, , three, , five, , sete ] = numbers;
 // console.log(one, theree, ); // 1000 3000 5000
 
 const number = [

@@ -32,4 +32,14 @@ const account1 = new Account(11, 22, 10); // agência, conta, salado
 
 account1.depositary(10);
 account1.depositary(5);
-account1.withdraw(30);
+account1.withdraw(25);
+
+function AccountCurrent(agency, account, balance, limit) {
+  Account.call(
+    this.agency = agency,
+    this.account = account,
+    this.balance = balance,
+  );
+
+  this.limit = limit;
+};

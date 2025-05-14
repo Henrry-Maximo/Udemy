@@ -43,3 +43,22 @@ function AccountCurrent(agency, account, balance, limit) {
 
   this.limit = limit;
 };
+
+AccountCurrent.prototype = Object.create(Account.prototype);
+AccountCurrent.prototype.constructor = AccountCurrent;
+
+AccountCurrent.prototype.withdraw = function (value) {
+  if (value > (this.balance + this.limit)) {
+    console.log(`Saldo insuficiente, disponível: ${this.balance}`)
+    return;
+  }
+
+  this.balance -= value;
+  this.seeBalance();
+};
+
+const cc = new AccountCurrent(11, 22, 0, 100);
+cc.depositary(10);
+// cc.withdraw(90); // 80
+cc.withdraw(110);
+cc.withdraw(1);

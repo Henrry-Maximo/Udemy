@@ -1,13 +1,22 @@
 const _velocity = Symbol('velocity');
 class Car {
-  constructor(name, velocity) {
+  constructor(name) {
     this.name = name;
     // this.velocity = 0;
     this[_velocity] = 0;
   }
 
-  get velocity() {
+  set velocity(value) {
+    console.log(`\nSETTER:`);
+    if(typeof value !== 'number') return;
+    if(value >= 100 || value <= 0) return;
 
+    this[_velocity] = value;
+  }
+
+  get velocity() {
+    console.log(`\nGETTERS:`);
+    return this[_velocity];
   }
 
   accelerate() {
@@ -16,15 +25,17 @@ class Car {
   };
 
   break() {
-    if (this[_velocity] <= 100) return;
+    if (this[_velocity] <= 0) return;
     this[_velocity]--;
   };
 };
 
 const c1 = new Car('Fusca');
-for(let i = 0; i <= 200; i++) {
+for(let i = 0; i <= 55; i++) {
   c1.accelerate();
 };
 
-c1.velocity = 1500;
-console.log(c1.velocity);
+
+console.log(c1);
+// c1.velocity = 55; // SETTERS
+console.log(c1.velocity); // GETTERS

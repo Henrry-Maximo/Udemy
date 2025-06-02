@@ -1,4 +1,4 @@
-// declaration of function (Function Hoisting)
+// declaration of function (Function Hoisted)
 function sayHello() {
   console.log('hello');
 }

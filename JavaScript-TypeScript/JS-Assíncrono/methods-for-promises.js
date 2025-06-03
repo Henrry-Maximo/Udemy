@@ -18,10 +18,13 @@ function waitThere(msg, time) {
 }
 
 /*
-Promise.all -> Executar várias promises em sequência, retornando uma resposta única no final
+Promise.all 
+  -> Executar várias promises em sequência, retornando uma resposta única no final
+  se uma falhar, todas seram rejeitadas
 Promise.race -> Executar várias promises, a primeira que resolver, será entregue
-Promise.resolve
-Promise.reject
+Promise.resolve -> Retornar uma Promise sabendo que o valor já é verdadeiro, mantendo o
+retorno padronizado (fica tranquilo, tá tudo certo, já tá resolvido.)
+Promise.reject -> Rejeita a Promise, caindo no catch
 */
 
 // const promises = [
@@ -57,8 +60,34 @@ const promises = [
 //   console.error(error)
 // });
 
-Promise.race(promises)
-  .then((value) => console.log(value))
-  .catch((error) => {
-    console.log(error);
-  });
+// Promise.race(promises)
+//   .then((value) => console.log(value))
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+function downloadPage() {
+  const onCache = true;
+
+  // if (!onCache) {
+  //   return waitThere('Download page', 3000);
+  // }
+
+  // if (onCache) {
+  //   return Promise.resolve('Page on cache.');
+  // } else {
+  //   return waitThere('Download page', 3000);
+  // }
+
+  if (onCache) {
+    return Promise.reject('Page on cache.');
+  } else {
+    return waitThere('Download page', 3000);
+  }
+
+  // return Promise.resolve('Page on cache.');
+}
+
+downloadPage().then(dataPage => {
+  console.log(dataPage)
+}).catch(e => console.log('Erro', e));

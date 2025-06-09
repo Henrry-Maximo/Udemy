@@ -43,16 +43,30 @@ function waitThere(msg, time) {
 //  });
 
 async function execute() {
-  const fase1 = await waitThere('Fase 1', rand()); // aguarda a resolução da chamada
-  console.log('Finished at fase: ', fase1);
-  
-  const fase2 = await waitThere('Fase 2', rand());
-  console.log('Finished at fase: ', fase2);
+  try {
+    const fase1 = await waitThere("Fase 1", 1000); // aguarda a resolução da chamada
+    console.log(fase1);
 
-  const fase3 = await waitThere('Fase 3', rand());
-  console.log('Finished at fase: ', fase3);
+    setTimeout(() => {
+      console.log(`It's promise was pending: `, fase1);
+    }, 1100); // 1 segundo e alguns milissegundos
 
-  console.log('Finished at fase: ', fase3);
+    const fase2 = await waitThere('Fase 2', rand()); // UnhandledPromiseRejection: Error not treatment
+    console.log(fase2);
+
+    const fase3 = await waitThere("Fase 3", rand());
+    console.log(fase3);
+
+    console.log("Finished at fase: ", fase3);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-execute();
+// execute();
+
+// const fase = waitThere('fase', rand()).then((value) => console.log( value ));
+const fase = await waitThere('fase', rand());
+console.log(fase);
+
+// Status: pending -> pendente / fullfield -> resolvida / rejected -> rejeitada

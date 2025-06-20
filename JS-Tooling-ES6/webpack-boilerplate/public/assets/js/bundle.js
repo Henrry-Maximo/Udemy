@@ -1,8 +1,2 @@
-/******/ (() => { // webpackBootstrap
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-alert("Olá");
-/******/ })()
-;
+alert("Olá"),console.log("Olá");
 //# sourceMappingURL=bundle.js.map
